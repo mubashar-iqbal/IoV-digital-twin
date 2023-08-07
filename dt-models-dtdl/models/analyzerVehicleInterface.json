@@ -1,0 +1,36 @@
+{
+    "@id": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1",
+    "@context": "dtmi:dtdl:context;2",
+    "@type": "Interface",
+    "displayName": "Analyzer Vehicle",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Id",
+            "schema": "string",
+            "description": "Analyzer Vehicle Id",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "FunctionalState",
+            "schema": "string",
+            "description": "Funcational and non-functional state of Vehicle",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "ComputeState",
+            "schema": "string",
+            "description": "Computational or Non-computational state of Vehicle",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "AverageOfLastThreeReadings",
+            "schema": "double",
+            "description": "Average of the last three temperature readings",
+            "writable": true
+        }
+    ]
+}

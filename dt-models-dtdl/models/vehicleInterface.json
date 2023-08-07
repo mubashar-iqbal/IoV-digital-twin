@@ -1,0 +1,29 @@
+{
+    "@id": "dtmi:iov:digitaliovregioncloud:rsu:vehicle;1",
+    "@context": "dtmi:dtdl:context;2",
+    "@type": "Interface",
+    "displayName": "Vehicle Interface Model",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Id",
+            "schema": "string",
+            "description": "Vehicle Id",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "FunctionalState",
+            "schema": "string",
+            "description": "Funcational and non-functional state of Vehicle",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "TemperatureReading",
+            "schema": "double",
+            "description": "Temperature Reading from OBU",
+            "writable": true
+        }
+    ]
+}

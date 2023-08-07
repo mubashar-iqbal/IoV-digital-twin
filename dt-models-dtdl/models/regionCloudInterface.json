@@ -1,0 +1,42 @@
+{
+  "@id": "dtmi:iov:digitaliovregioncloud;1",
+  "@type": "Interface",
+  "displayName": "IoV Region Interface Model",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+      {
+          "@type": "Property",
+          "name": "Id",
+          "schema": "string",
+          "description": "IoV Region ID",
+          "writable": true
+      },
+      {
+          "@type": "Property",
+          "name": "IoVRegionLocation",
+          "schema": {
+              "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation;1",
+              "@type": "Object",
+              "fields": [
+                  {
+                      "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation:lat;1",
+                      "name": "Latitude",
+                      "schema": "double"
+                  },
+                  {
+                      "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation:lon;1",
+                      "name": "Longitude",
+                      "schema": "double"
+                  }
+              ]
+          }
+      },
+      {
+          "@type": "Relationship",
+          "@id": "dtmi:iov:digitaliovregioncloud:rel_has_road_side_units;1",
+          "name": "rel_has_road_side_units",
+          "displayName": "Has Road-Side Units",
+          "target": "dtmi:iov:digitaliovregioncloud:rsu;1"
+      }
+  ]
+}

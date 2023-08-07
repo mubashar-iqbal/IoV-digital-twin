@@ -1,0 +1,50 @@
+{
+    "@id": "dtmi:iov:digitaliovregioncloud:rsu;1",
+    "@context": "dtmi:dtdl:context;2",
+    "@type": "Interface",
+    "displayName": "Road-Side Unit Interface Model",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "Address",
+            "schema": "string",
+            "description": "RSU address",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "State",
+            "schema": "string",
+            "description": "Funcational and non-functional state of RSU",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "VehicleAddress",
+            "schema": "string",
+            "description": "Smart Contract Address For vehicle",
+            "writable": true
+        },
+        {
+            "@type": "Property",
+            "name": "AnalyzerVehicleAddress",
+            "schema": "string",
+            "description": "Smart Contract Address For analyzer vehicle",
+            "writable": true
+        },
+        {
+            "@type": "Relationship",
+            "@id": "dtmi:iov:digitaliovregioncloud:rsu:rel_has_vehicles;1",
+            "name": "rel_has_vehicles",
+            "displayName": "Has Vehicles",
+            "target": "dtmi:iov:digitaliovregioncloud:rsu:vehicle;1"
+        },
+        {
+            "@type": "Relationship",
+            "@id": "dtmi:iov:digitaliovregioncloud:rsu:rel_has_analyzervehicles;1",
+            "name": "rel_has_analyzervehicles",
+            "displayName": "Has Incentivized Analyzer Vehicles",
+            "target": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1"
+        }
+    ]
+}
