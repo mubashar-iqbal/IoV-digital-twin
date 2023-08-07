@@ -1,0 +1,255 @@
+{
+    "digitalTwinsFileInfo": {
+        "fileVersion": "1.0.0"
+    },
+    "digitalTwinsGraph": {
+        "digitalTwins": [
+            {
+                "$dtId": "RegionCloud",
+                "$etag": "W/\"52a9df07-caf4-4d18-b7f5-5258752b0aae\"",
+                "Id": "RegionCloud2023",
+                "IoVRegionLocation": {
+                    "Latitude": 75,
+                    "Longitude": 60
+                },
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud;1"
+                }
+            },
+            {
+                "$dtId": "RSU",
+                "$etag": "W/\"61807513-448b-4a75-9d92-7810d94fcfd7\"",
+                "Id": "rsu2023",
+                "State": "LIVE",
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud:rsu;1"
+                }
+            },
+            {
+                "$dtId": "Vehicle",
+                "$etag": "W/\"ded1c644-2bfe-4f1f-8063-8c98b323aaee\"",
+                "FunctionalState": "LIVE",
+                "Id": "vehicle2023",
+                "TemperatureReading": 75,
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud:rsu:vehicle;1"
+                }
+            },
+            {
+                "$dtId": "AnalyzerVehicle01",
+                "$etag": "W/\"66deeaa6-b03f-4b65-93ac-9cfe42eb1c52\"",
+                "AverageOfLastThreeReadings": 75,
+                "ComputeState": "FREE",
+                "FunctionalState": "LIVE",
+                "Id": "analyzerVehicle01",
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1"
+                }
+            },
+            {
+                "$dtId": "AnalyzerVehicle02",
+                "$etag": "W/\"797d1d36-3827-4ce9-abe0-18fc4bef8c97\"",
+                "AverageOfLastThreeReadings": 75,
+                "ComputeState": "FREE",
+                "FunctionalState": "LIVE",
+                "Id": "analyzerVehicle02",
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1"
+                }
+            },
+            {
+                "$dtId": "AnalyzerVehicle03",
+                "$etag": "W/\"45359aa2-491c-4219-87e2-7687f236a6a0\"",
+                "AverageOfLastThreeReadings": 75,
+                "ComputeState": "FREE",
+                "FunctionalState": "LIVE",
+                "Id": "analyzerVehicle03",
+                "$metadata": {
+                    "$model": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1"
+                }
+            }
+        ],
+        "relationships": [
+            {
+                "$relationshipId": "28f80311-cb6a-4099-9c64-0ddcc4d417ac",
+                "$sourceId": "RegionCloud",
+                "$targetId": "RSU",
+                "$relationshipName": "rel_has_road_side_units",
+                "$etag": "W/\"6919ded4-71d0-4476-9e02-3b8f9b8b1bd3\""
+            },
+            {
+                "$relationshipId": "ef8d753c-5799-4b9f-9682-f6569ec90db8",
+                "$sourceId": "RSU",
+                "$targetId": "Vehicle",
+                "$relationshipName": "rel_has_vehicles",
+                "$etag": "W/\"322e197e-23e0-44f7-a43d-b2619497fa21\""
+            },
+            {
+                "$relationshipId": "3e8ef1df-c148-4a89-94a7-2bc0331b2126",
+                "$sourceId": "RSU",
+                "$targetId": "AnalyzerVehicle01",
+                "$relationshipName": "rel_has_analyzervehicles",
+                "$etag": "W/\"1a052bd0-356b-4103-868f-614c13bd68f2\""
+            },
+            {
+                "$relationshipId": "52bf1f29-f07e-4165-9c0a-e1af3d625b22",
+                "$sourceId": "RSU",
+                "$targetId": "AnalyzerVehicle02",
+                "$relationshipName": "rel_has_analyzervehicles",
+                "$etag": "W/\"77553f45-181e-4495-8962-d098ffec164a\""
+            },
+            {
+                "$relationshipId": "fba32e9f-77b9-466c-a1c8-485f1cde0409",
+                "$sourceId": "RSU",
+                "$targetId": "AnalyzerVehicle03",
+                "$relationshipName": "rel_has_analyzervehicles",
+                "$etag": "W/\"2d9aaade-1edf-412a-b08d-92b09d9b46e4\""
+            }
+        ]
+    },
+    "digitalTwinsModels": [
+        {
+            "@id": "dtmi:iov:digitaliovregioncloud:rsu;1",
+            "@context": "dtmi:dtdl:context;2",
+            "@type": "Interface",
+            "displayName": "Road-Side Unit Interface Model",
+            "contents": [
+                {
+                    "@type": "Property",
+                    "name": "Id",
+                    "schema": "string",
+                    "description": "RSU Id",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "State",
+                    "schema": "string",
+                    "description": "Funcational and non-functional state of RSU",
+                    "writable": true
+                },
+                {
+                    "@type": "Relationship",
+                    "@id": "dtmi:iov:digitaliovregioncloud:rsu:rel_has_vehicles;1",
+                    "name": "rel_has_vehicles",
+                    "displayName": "Has Vehicles",
+                    "target": "dtmi:iov:digitaliovregioncloud:rsu:vehicle;1"
+                },
+                {
+                    "@type": "Relationship",
+                    "@id": "dtmi:iov:digitaliovregioncloud:rsu:rel_has_analyzervehicles;1",
+                    "name": "rel_has_analyzervehicles",
+                    "displayName": "Has Incentivized Analyzer Vehicles",
+                    "target": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1"
+                }
+            ]
+        },
+        {
+            "@id": "dtmi:iov:digitaliovregioncloud:rsu:vehicle;1",
+            "@context": "dtmi:dtdl:context;2",
+            "@type": "Interface",
+            "displayName": "Vehicle Interface Model",
+            "contents": [
+                {
+                    "@type": "Property",
+                    "name": "Id",
+                    "schema": "string",
+                    "description": "Vehicle Id",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "FunctionalState",
+                    "schema": "string",
+                    "description": "Funcational and non-functional state of Vehicle",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "TemperatureReading",
+                    "schema": "double",
+                    "description": "Temperature Reading from OBU",
+                    "writable": true
+                }
+            ]
+        },
+        {
+            "@id": "dtmi:iov:digitaliovregioncloud;1",
+            "@type": "Interface",
+            "displayName": "IoV Region Interface Model",
+            "@context": "dtmi:dtdl:context;2",
+            "contents": [
+                {
+                    "@type": "Property",
+                    "name": "Id",
+                    "schema": "string",
+                    "description": "IoV Region ID",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "IoVRegionLocation",
+                    "schema": {
+                        "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation;1",
+                        "@type": "Object",
+                        "fields": [
+                            {
+                                "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation:lat;1",
+                                "name": "Latitude",
+                                "schema": "double"
+                            },
+                            {
+                                "@id": "dtmi:iov:digitaliovregioncloud:custom_schema:iovregionlocation:lon;1",
+                                "name": "Longitude",
+                                "schema": "double"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "@type": "Relationship",
+                    "@id": "dtmi:iov:digitaliovregioncloud:rel_has_road_side_units;1",
+                    "name": "rel_has_road_side_units",
+                    "displayName": "Has Road-Side Units",
+                    "target": "dtmi:iov:digitaliovregioncloud:rsu;1"
+                }
+            ]
+        },
+        {
+            "@id": "dtmi:iov:digitaliovregioncloud:rsu:analyzer_vehicle;1",
+            "@context": "dtmi:dtdl:context;2",
+            "@type": "Interface",
+            "displayName": "Analyzer Vehicle",
+            "contents": [
+                {
+                    "@type": "Property",
+                    "name": "Id",
+                    "schema": "string",
+                    "description": "Analyzer Vehicle Id",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "FunctionalState",
+                    "schema": "string",
+                    "description": "Funcational and non-functional state of Vehicle",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "ComputeState",
+                    "schema": "string",
+                    "description": "Computational or Non-computational state of Vehicle",
+                    "writable": true
+                },
+                {
+                    "@type": "Property",
+                    "name": "AverageOfLastThreeReadings",
+                    "schema": "double",
+                    "description": "Average of the last three temperature readings",
+                    "writable": true
+                }
+            ]
+        }
+    ]
+}
